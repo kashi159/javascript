@@ -1,0 +1,41 @@
+//========== User's Code Starts Here ==========
+'use strict';
+
+process.stdin.setEncoding('utf-8');
+
+function print_pattern(){
+     /* Function to print the pattern */
+     var i=1;
+     
+  while(i<=5)
+{
+    var str="";
+    var j=1;
+    while(j<=6-i)
+    {
+        str=str+"*";
+         j++;
+    }
+    
+    console.log(str);
+    i++;
+}
+    
+    
+    
+}
+
+//Dont change anything below. If changed click on reset.
+async function readInput() {
+        let inputString = '';
+        process.stdin.on('data', inputStdin => {
+            inputString += inputStdin;
+            const inputArr = inputString.split(/(?:\r\n|\r|\n)/g)
+            // console.log(inputArr);
+            print_pattern()
+            process.exit();
+
+        })
+
+}
+readInput();
