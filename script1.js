@@ -1,6 +1,6 @@
 
 let day= "Monday"
-
+// comment
 switch (day) {
   case 'Monday':
     // code
