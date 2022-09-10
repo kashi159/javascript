@@ -30,7 +30,6 @@ function readLine() {
 
 function fizzBuzz(n) {
     // Write your code 
-    var n=5;
     var i;
 for (i=1 ; i<=n ; i++)
 {
