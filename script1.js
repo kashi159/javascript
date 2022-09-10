@@ -1,5 +1,5 @@
 
-let day= "Tuesday"
+let day= "Sunday"
 // comment
 switch (day) {
   case 'Monday':
