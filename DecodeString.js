@@ -29,29 +29,29 @@
     }
    }
        
-       var stackDec= new Stack();
+       var stack= new Stack();
        for(var i=0;i<s.length;i++)
            {
                if(s[i]!=']')
                    {
-                       stackDec.add(s[i]);
+                    stack.add(s[i]);
                    }
                else
                    {
                        let str='';
-                       let e=stackDec.remove();
+                       let e=stack.remove();
                        while(e!=='[')
                            {
                                str=e+str;
-                               e=stackDec.remove();
+                               e=stack.remove();
                            }
                        let digit="";
-                       while(!isNaN(stackDec.peek()))
+                       while(!isNaN(stack.peek()))
                            {
-                               digit=stackDec.remove()+digit;
+                               digit=stack.remove()+digit;
                            }
-                       stackDec.add(str.repeat(digit))
+                           stack.add(str.repeat(digit))
                    }     
            }
-         return stackDec.toString();
+         return stack.toString();
    };
