@@ -38,6 +38,10 @@ class Queue
         {
             return true;
         }
+        else
+        {
+            return false;
+        }
     }
     getFirstElement()
     {
@@ -57,3 +61,5 @@ obj.Dequeue()
 console.log(obj.front);
 console.log(obj.rear)
 console.log(obj.q)
+console.log(obj.isEmpty())
+console.log(obj.getFirstElement())
