@@ -1,33 +1,73 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int get_cents(void);
+int calculate_quarters(int cents);
+int calculate_dimes(int cents);
+int calculate_nickels(int cents);
+int calculate_pennies(int cents);
+
 int main(void)
 {
-     int count = 0;   //to count
-    float change; //declare a float variable "change"
-    do
-    {
-        change = get_float("Change owed: ");  //get change from user
-    }
-    while (change < 0);    //make sure change is not less than 0
-    int cent = round(change * 100); //round off to the nearest whole number
+    // Ask how many cents the customer is owed
+    int cents = get_cents();
 
-    while (cent >= 25)
+    // Calculate the number of quarters to give the customer
+    int quarters = calculate_quarters(cents);
+    cents = cents - quarters * 25;
+
+    // Calculate the number of dimes to give the customer
+    int dimes = calculate_dimes(cents);
+    cents = cents - dimes * 10;
+
+    // Calculate the number of nickels to give the customer
+    int nickels = calculate_nickels(cents);
+    cents = cents - nickels * 5;
+
+    // Calculate the number of pennies to give the customer
+    int pennies = calculate_pennies(cents);
+    cents = cents - pennies * 1;
+
+    // Sum coins
+    int coins = quarters + dimes + nickels + pennies;
+
+    // Print total number of coins to give the customer
+    printf("%i\n", coins);
+}
+
+int get_cents(void)
+{
+    int cents;
+
+    do 
     {
-        cent = cent - 25; // divide by 25 and give account of remainder
-        count++;  //count number of times
-    }
-    while (cent >= 10)
-    {
-        cent = cent - 10; //divide by 10 and give account of remainder
-        count++;       //count number of times
-    }
-    while (cent >= 5)
-    {
-        cent = cent - 5;    //divide by 5 and give account of remainder
-        count++;  //count number of times
-    }
-    while (cent >= 1)
-    {
-        cent = cent - 1;  //divide by 1 and give account of remainder
-        count++;     //count number of times
-    }
-    printf("%i\n", count);
+        cents = get_int("Change Owed: ");
+    } 
+    while (cents < 0);
+
+    return cents;
+}
+
+int calculate_quarters(int cents)
+{
+    int quarters = cents / 25;
+    return quarters;
+}
+
+int calculate_dimes(int cents)
+{
+    int dimes = cents / 10;
+    return dimes;
+}
+
+int calculate_nickels(int cents)
+{
+    int nickels = cents / 5;
+    return nickels;
+}
+
+int calculate_pennies(int cents)
+{
+    int pennies = cents / 1;
+    return pennies;
 }
