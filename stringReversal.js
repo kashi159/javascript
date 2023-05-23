@@ -9,6 +9,16 @@ var reverse = function(s) {
         reversed.push(string[i]);
     }
     return reversed.join(" ");
-};
+};  
+
+function reverse2 (str){
+    return str.split('').reverse().join('')
+}
+
+const reverse3 = str => str.split('').reverse().join('')
+
+const reverse4 = str => [...str].reverse().join('')
+
+console.log(reverse4('Hi My Name Is Kashif Zafar'))
 
 
